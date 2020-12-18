@@ -9,8 +9,8 @@ def parse(file):
             if("#" in line):
                 continue
             [functionName, c, cpp, java, ts, js, py] = line.split(",")
-            data[functionName.strip()] = {"c": float(c.strip()), "c++": float(cpp.strip()),
-                                          "java": float(java.strip()), "ts": float(ts.strip()), "js": float(js.strip()), "py": float(py.strip())}
+            data[functionName.strip()] = {"C": float(c.strip()), "C++": float(cpp.strip()),
+                                          "Java": float(java.strip()), "TypeScript": float(ts.strip()), "JavaScript": float(js.strip()), "Python": float(py.strip())}
     return data
 
 
@@ -70,10 +70,10 @@ def writeFastestShortest(data):
         f.write("\n")
         f.write("## Fastest\n\n")
         for key in fastest:
-            f.write(f"- {key}: {list(fastest[key].keys())[0]} at {fastest[key][list(fastest[key].keys())[0]]} seconds\n\n")
+            f.write(f"- **{key}**: <u>{list(fastest[key].keys())[0]}</u> at {fastest[key][list(fastest[key].keys())[0]]} seconds\n\n")
         f.write("## Slowest\n\n")
         for key in slowest:
-            f.write(f"- {key}: {list(slowest[key].keys())[0]} at {slowest[key][list(slowest[key].keys())[0]]} seconds\n\n")
+            f.write(f"- **{key}**: <u>{list(slowest[key].keys())[0]}</u> at {slowest[key][list(slowest[key].keys())[0]]} seconds\n\n")
 
 
 
@@ -115,12 +115,13 @@ def writeReadme(data):
         f.write("\n")
         f.write("Data in seconds\n")
         f.write("\n")
-        f.write("|         Function         |     C     |   C++    |     Java     |    TS     |    JS    |    Py    |\n")
+        f.write("|         Function         |     C     |   C++    |     Java     |    TypeScript     |    JavaScript    |    Python    |\n")
         f.write("| :----------------------: | :-------: | :------: | :----------: | :-------: | :------: | :------: |\n")
         for func in data:
             vals = data[func]
             f.write(
-                f"| {func} | {vals['c']} | {vals['c++']} | {vals['java']} | {vals['ts']} | {vals['js']} | {vals['py']} |\n")
+                f"| {func} | {vals['C']} | {vals['C++']} | {vals['Java']} | {vals['TypeScript']} | {vals['JavaScript']} | {vals['Python'] if func != '50th Recursive Fibonacci' else str(vals['Python']) + '*'} |\n")
+        f.write("\n<sub>*Estimation: Note, 50th Recursive Fibonacci for Python was calculated based on how long it takes to run through 1000000 numbers, as it would theoretically run 2<sup>49</sup> times. The calculation was ((2<sup>49</sup> / 1000000 / 10) / 12) to calculate the estimated duration. This number is an estimate as it, in itself, was not completing on my machine or repl, so I calculated the estimated duration instead. </sub>")
     f.close()
 
 
