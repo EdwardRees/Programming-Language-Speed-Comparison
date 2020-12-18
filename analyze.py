@@ -62,6 +62,21 @@ def printFastestShortest(data):
     print("Slowest: ")
     printDictionary(getSlowestLanguagesPerFunction(data))
 
+def writeFastestShortest(data):
+  fastest = getFastestLanguagesPerFunction(data)
+  slowest = getSlowestLanguagesPerFunction(data)
+  with open("analysis.md", "w") as f:
+        f.write("# Programming Language Speeds Analysis\n")
+        f.write("\n")
+        f.write("## Fastest\n\n")
+        for key in fastest:
+            f.write(f"- {key}: {list(fastest[key].keys())[0]} at {fastest[key][list(fastest[key].keys())[0]]} seconds\n\n")
+        f.write("## Slowest\n\n")
+        for key in slowest:
+            f.write(f"- {key}: {list(slowest[key].keys())[0]} at {slowest[key][list(slowest[key].keys())[0]]} seconds\n\n")
+
+
+
 
 def main():
     data = parse("data.csv")
@@ -74,16 +89,21 @@ def main():
             print("Options are:")
             print("-h: This help menu")
             print("-r: Write readme")
+            print("-o: Write fastest and slowest to analysis.md file")
             print("-p: Print fastest and shortest data to console *default*")
         elif(argv[1] == "-r"):
             writeReadme(data)
             print("Updated README.md file")
         elif(argv[1] == '-p'):
             printFastestShortest(data)
+        elif(argv[1] == '-o'):
+            writeFastestShortest(data)
+            print("Updated analysis.md file")
         else:
             print("Options are:")
             print("-h: This help menu")
             print("-r: Write readme")
+            print("-o: Write fastest and slowest to analysis.md file")
             print("-p: Print fastest and shortest data to console *default*")
 
 
