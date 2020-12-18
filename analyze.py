@@ -72,11 +72,11 @@ def writeFastestShortest(data):
         f.write("## Fastest\n\n")
         for key in fastest:
             f.write(
-                f"- **{key}**: <u>{list(fastest[key].keys())[0]}</u> at {fastest[key][list(fastest[key].keys())[0]]} seconds\n\n")
+                f"- **{key}**: <u>{list(fastest[key].keys())[0]}</u> at {fastest[key][list(fastest[key].keys())[0]]:.6f} seconds\n\n")
         f.write("## Slowest\n\n")
         for key in slowest:
             f.write(
-                f"- **{key}**: <u>{list(slowest[key].keys())[0]}</u> at {slowest[key][list(slowest[key].keys())[0]]} seconds\n\n")
+                f"- **{key}**: <u>{list(slowest[key].keys())[0]}</u> at {slowest[key][list(slowest[key].keys())[0]]:.6f} seconds\n\n")
 
 
 def main():
@@ -128,7 +128,7 @@ def writeReadme(data):
         for func in data:
             vals = data[func]
             f.write(
-                f"| {func} | {vals['C']} | {vals['C++']} | {vals['Java']} | {vals['TypeScript']} | {vals['JavaScript']} | {vals['Python'] if func != '50th Recursive Fibonacci' else str(vals['Python']) + '*'} |\n")
+                f"| {func} | {vals['C']:.6f} | {vals['C++']:.6f} | {vals['Java']:.6f} | {vals['TypeScript']:.6f} | {vals['JavaScript']:.6f} | {vals['Python'] if func != '50th Recursive Fibonacci' else str(vals['Python']) + '*'} |\n")
         f.write("\n<sub>*Estimation: Note, 50th Recursive Fibonacci for Python was calculated based on how long it takes to run through 1000000 numbers, as it would theoretically run 2<sup>50</sup> times. The calculation was ((2<sup>50</sup> / 1000000 / 10) / 12) to calculate the estimated duration. This number is an estimate as it, in itself, was not completing on my machine or repl, so I calculated the estimated duration instead. </sub>")
     f.close()
 
