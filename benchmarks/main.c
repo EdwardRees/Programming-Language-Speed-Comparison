@@ -64,9 +64,9 @@ int main(void)
 {
   double time_spent = 0.0;
   clock_t begin = clock();
-
+  printf("%lu\n", factorial(20));
   // printf("%lu\n", fib2(49));
-  printf("%d\n", max());
+  // printf("%d\n", max());
 
   clock_t end = clock();
 
