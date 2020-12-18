@@ -18,7 +18,7 @@
 
 - **Summation of 1000000**: <u>Python</u> at 0.0542 seconds
 
-- **50th Recursive Fibonacci**: <u>Python</u> at 4691249.611 seconds
+- **50th Recursive Fibonacci**: <u>Python</u> at 9382499.2236 seconds
 
 - **50th Iterative Fibonacci**: <u>Java</u> at 0.000150594 seconds
 

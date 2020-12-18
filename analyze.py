@@ -62,20 +62,21 @@ def printFastestShortest(data):
     print("Slowest: ")
     printDictionary(getSlowestLanguagesPerFunction(data))
 
+
 def writeFastestShortest(data):
-  fastest = getFastestLanguagesPerFunction(data)
-  slowest = getSlowestLanguagesPerFunction(data)
-  with open("analysis.md", "w") as f:
+    fastest = getFastestLanguagesPerFunction(data)
+    slowest = getSlowestLanguagesPerFunction(data)
+    with open("analysis.md", "w") as f:
         f.write("# Programming Language Speeds Analysis\n")
         f.write("\n")
         f.write("## Fastest\n\n")
         for key in fastest:
-            f.write(f"- **{key}**: <u>{list(fastest[key].keys())[0]}</u> at {fastest[key][list(fastest[key].keys())[0]]} seconds\n\n")
+            f.write(
+                f"- **{key}**: <u>{list(fastest[key].keys())[0]}</u> at {fastest[key][list(fastest[key].keys())[0]]} seconds\n\n")
         f.write("## Slowest\n\n")
         for key in slowest:
-            f.write(f"- **{key}**: <u>{list(slowest[key].keys())[0]}</u> at {slowest[key][list(slowest[key].keys())[0]]} seconds\n\n")
-
-
+            f.write(
+                f"- **{key}**: <u>{list(slowest[key].keys())[0]}</u> at {slowest[key][list(slowest[key].keys())[0]]} seconds\n\n")
 
 
 def main():
@@ -88,9 +89,10 @@ def main():
         if(argv[1] == "-h"):
             print("Options are:")
             print("-h: This help menu")
+            print("-p: Print fastest and shortest data to console *default*")
             print("-r: Write readme")
             print("-o: Write fastest and slowest to analysis.md file")
-            print("-p: Print fastest and shortest data to console *default*")
+            print("-u: Update both README.md and analysis.md")
         elif(argv[1] == "-r"):
             writeReadme(data)
             print("Updated README.md file")
@@ -99,12 +101,18 @@ def main():
         elif(argv[1] == '-o'):
             writeFastestShortest(data)
             print("Updated analysis.md file")
+        elif(argv[1] == '-u'):
+            writeFastestShortest(data)
+            print("Updated README.md file")
+            writeReadme(data)
+            print("Updated analysis.md file")
         else:
             print("Options are:")
             print("-h: This help menu")
+            print("-p: Print fastest and shortest data to console *default*")
             print("-r: Write readme")
             print("-o: Write fastest and slowest to analysis.md file")
-            print("-p: Print fastest and shortest data to console *default*")
+            print("-u: Update both README.md and analysis.md")
 
 
 def writeReadme(data):
