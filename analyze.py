@@ -129,7 +129,7 @@ def writeReadme(data):
             vals = data[func]
             f.write(
                 f"| {func} | {vals['C']} | {vals['C++']} | {vals['Java']} | {vals['TypeScript']} | {vals['JavaScript']} | {vals['Python'] if func != '50th Recursive Fibonacci' else str(vals['Python']) + '*'} |\n")
-        f.write("\n<sub>*Estimation: Note, 50th Recursive Fibonacci for Python was calculated based on how long it takes to run through 1000000 numbers, as it would theoretically run 2<sup>49</sup> times. The calculation was ((2<sup>49</sup> / 1000000 / 10) / 12) to calculate the estimated duration. This number is an estimate as it, in itself, was not completing on my machine or repl, so I calculated the estimated duration instead. </sub>")
+        f.write("\n<sub>*Estimation: Note, 50th Recursive Fibonacci for Python was calculated based on how long it takes to run through 1000000 numbers, as it would theoretically run 2<sup>50</sup> times. The calculation was ((2<sup>50</sup> / 1000000 / 10) / 12) to calculate the estimated duration. This number is an estimate as it, in itself, was not completing on my machine or repl, so I calculated the estimated duration instead. </sub>")
     f.close()
 
 

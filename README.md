@@ -12,4 +12,4 @@ Data in seconds
 | 50th Iterative Fibonacci | 1e-05 | 2.5e-05 | 0.000150594 | 0.0001314 | 8.9e-05 | 7.8e-05 |
 | Linear Search; Maximum in 1000000 | 0.009356 | 0.009842 | 0.028253198 | 0.033965 | 0.035999 | 0.998265 |
 
-<sub>*Estimation: Note, 50th Recursive Fibonacci for Python was calculated based on how long it takes to run through 1000000 numbers, as it would theoretically run 2<sup>49</sup> times. The calculation was ((2<sup>49</sup> / 1000000 / 10) / 12) to calculate the estimated duration. This number is an estimate as it, in itself, was not completing on my machine or repl, so I calculated the estimated duration instead. </sub>
+<sub>*Estimation: Note, 50th Recursive Fibonacci for Python was calculated based on how long it takes to run through 1000000 numbers, as it would theoretically run 2<sup>50</sup> times. The calculation was ((2<sup>50</sup> / 1000000 / 10) / 12) to calculate the estimated duration. This number is an estimate as it, in itself, was not completing on my machine or repl, so I calculated the estimated duration instead. </sub>
