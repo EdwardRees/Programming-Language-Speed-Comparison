@@ -2,6 +2,8 @@
 
 ## Fastest
 
+- **Hello World**: <u>C</u> at 0.000008 seconds
+
 - **Factorial of 20**: <u>C</u> at 0.000008 seconds
 
 - **Summation of 1000000**: <u>C</u> at 0.002087 seconds
@@ -12,7 +14,11 @@
 
 - **Linear Search; Maximum in 1000000**: <u>C</u> at 0.009356 seconds
 
+- **Print Triangle of 10 elements**: <u>C</u> at 0.000014 seconds
+
 ## Slowest
+
+- **Hello World**: <u>JavaScript</u> at 0.003437 seconds
 
 - **Factorial of 20**: <u>JavaScript</u> at 0.003993 seconds
 
@@ -23,4 +29,6 @@
 - **50th Iterative Fibonacci**: <u>Java</u> at 0.000151 seconds
 
 - **Linear Search; Maximum in 1000000**: <u>Python</u> at 0.998265 seconds
+
+- **Print Triangle of 10 elements**: <u>Java</u> at 0.013388 seconds
 

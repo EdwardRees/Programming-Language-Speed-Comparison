@@ -2,6 +2,11 @@
 #include <time.h>
 #include <stdlib.h>
 
+
+void hello_world(void){
+  printf("Hello World\n");
+}
+
 unsigned int sum(int n)
 {
   unsigned int s = 0;
@@ -21,52 +26,77 @@ unsigned long factorial(int n)
   return n * factorial(n - 1);
 }
 
-unsigned long fib(int n){
-  if(n == 0 || n == 1){
+unsigned long fib(int n)
+{
+  if (n == 0 || n == 1)
+  {
     return 1;
   }
   return fib(n - 1) + fib(n - 2);
 }
 
-unsigned long fib2(int n){
-  long f =0;
+unsigned long fib2(int n)
+{
+  long f = 0;
   long tl1 = 0;
   long tl2 = 1;
-  for(int i=0; i<=n; i++){
+  for (int i = 0; i <= n; i++)
+  {
     f = tl1 + tl2;
-    if(i % 2 == 0 ){
+    if (i % 2 == 0)
+    {
       tl1 += tl2;
-    } else {
+    }
+    else
+    {
       tl2 += tl1;
     }
   }
   return f;
 }
 
-int max(){
+int max()
+{
   srand(time(NULL));
   int numbers[1000000] = {0};
-  for(int i = 0; i<1000000; i++){
+  for (int i = 0; i < 1000000; i++)
+  {
     numbers[i] = (int)(rand() % 1000000);
   }
 
   int maximum = 0;
-  for(int i=0; i<1000000; i++){
-    if(numbers[i] > maximum){
+  for (int i = 0; i < 1000000; i++)
+  {
+    if (numbers[i] > maximum)
+    {
       maximum = numbers[i];
     }
   }
   return maximum;
 }
 
+void print_triangle(int size)
+{
+  for (int i = size; i >= 1; --i)
+  {
+    for (int j = 1; j <= i; ++j)
+    {
+      printf("%d ", j);
+    }
+    printf("\n");
+  }
+}
 
 int main(void)
 {
   double time_spent = 0.0;
   clock_t begin = clock();
-  printf("%lu\n", factorial(20));
+  hello_world();
+  // printf("%lu\n", factorial(20));
   // printf("%lu\n", fib2(49));
   // printf("%d\n", max());
+
+  // print_triangle(100);
 
   clock_t end = clock();
 

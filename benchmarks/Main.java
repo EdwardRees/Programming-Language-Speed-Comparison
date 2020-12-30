@@ -1,4 +1,7 @@
 public class Main {
+  public static void helloWorld(){
+    System.out.println("Hello World");
+  }
   public static long factorial(int n) {
     if (n <= 1) {
       return 1;
@@ -52,9 +55,23 @@ public class Main {
     return maximum;
   }
 
+  public static void print_triangle(int size){
+
+  for (int i = size; i >= 1; --i)
+  {
+    for (int j = 1; j <= i; ++j)
+    {
+      System.out.printf("%d ", j);
+    }
+    System.out.printf("\n");
+  }
+
+}
+
   public static void main(String[] args) {
     long start = System.nanoTime();
-    System.out.println(max());
+    helloWorld();
+    // System.out.println(max());
     long end = System.nanoTime();
     System.out.println(end - start);
 

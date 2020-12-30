@@ -3,6 +3,10 @@
 #include <stdlib.h>
 using namespace std;
 
+void hello_world(void){
+  cout <<"Hello World" << endl;
+}
+
 unsigned int factorial(int n)
 {
   if (n <= 1)
@@ -60,13 +64,28 @@ int max(){
 }
 
 
+void print_triangle(int size)
+{
+  for (int i = size; i >= 1; --i)
+  {
+    for (int j = 1; j <= i; ++j)
+    {
+      cout << j << " ";
+    }
+    cout << endl;
+  }
+}
+
+
 int main(void)
 {
 
   double time_spent = 0.0;
   clock_t begin = clock();
   // cout << factorial(15) << endl;
-  cout << max() << endl;
+  // cout << max() << endl;
+  // print_triangle(10);
+  hello_world();
   clock_t end = clock();
 
   time_spent = (double)(end - begin) / CLOCKS_PER_SEC;

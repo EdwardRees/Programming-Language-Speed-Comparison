@@ -1,3 +1,6 @@
+const helloWorld = (): void => {
+  console.info("Hello World");
+}
 const factorial = (n: number): number => {
   if (n <= 1) {
     return 1;
@@ -51,11 +54,19 @@ const maxSearch = () : number => {
   return maximum;
 }
 
+
+const printTriangle = (size: number): void => {
+  for(let i=size; i>=1; i--){
+    for(let j=1; j<=i; j++){
+      console.info(j);
+    }
+  }
+}
 const main = () => {
   // console.log(sum(1000000));
-  console.time("maxSearch");
-  console.info(maxSearch());
-  console.timeEnd("maxSearch");
+  console.time("helloWorld");
+  helloWorld();
+  console.timeEnd("helloWorld");
 };
 
 main();

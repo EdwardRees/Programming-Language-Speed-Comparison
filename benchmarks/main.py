@@ -1,6 +1,9 @@
 import time
 from random import randint
 
+def helloWorld():
+  print("Hello World")
+
 def factorial(n):
   if(n <= 1):
     return 1
@@ -49,9 +52,17 @@ def maxSearch():
       maximum = nums[i]
   return maximum
 
+def printTriangle(size):
+  for i in range(size, 1, -1):
+    for j in range(1, i):
+      print(j, end=" ")
+    print()
+
 def main():
   start = time.time()
-  maxSearch()
+  # maxSearch()
+  helloWorld()
+  # printTriangle(100)
   # print(factorial(20))
   end = time.time()
   print(f"{end - start}")
