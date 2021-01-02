@@ -91,12 +91,12 @@ int main(void)
 {
   double time_spent = 0.0;
   clock_t begin = clock();
-  hello_world();
+  // hello_world();
   // printf("%lu\n", factorial(20));
   // printf("%lu\n", fib2(49));
   // printf("%d\n", max());
 
-  // print_triangle(100);
+  print_triangle(100);
 
   clock_t end = clock();
 

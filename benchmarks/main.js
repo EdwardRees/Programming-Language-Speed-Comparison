@@ -63,9 +63,9 @@ const printTriangle = (size) => {
 }
 
 const main = () => {
-  console.time("helloWorld");
-  helloWorld();
-  console.timeEnd("helloWorld");
+  console.time("printTriangle");
+  printTriangle(100)
+  console.timeEnd("printTriangle");
   // console.time("factorial");
   // console.info(factorial(10));
   // console.timeEnd("factorial");

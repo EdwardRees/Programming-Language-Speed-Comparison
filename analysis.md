@@ -14,7 +14,7 @@
 
 - **Linear Search; Maximum in 1000000**: <u>C</u> at 0.009356 seconds
 
-- **Print Triangle of 10 elements**: <u>C</u> at 0.000014 seconds
+- **Print Triangle of 100 elements**: <u>C</u> at 0.000454 seconds
 
 ## Slowest
 
@@ -24,11 +24,11 @@
 
 - **Summation of 1000000**: <u>Python</u> at 0.054200 seconds
 
-- **50th Recursive Fibonacci**: <u>Python</u> at 9382499.223600 seconds
+- **50th Recursive Fibonacci**: <u>Lua</u> at 140737488.355328 seconds
 
 - **50th Iterative Fibonacci**: <u>Java</u> at 0.000151 seconds
 
 - **Linear Search; Maximum in 1000000**: <u>Python</u> at 0.998265 seconds
 
-- **Print Triangle of 10 elements**: <u>Java</u> at 0.013388 seconds
+- **Print Triangle of 100 elements**: <u>Java</u> at 0.131234 seconds
 

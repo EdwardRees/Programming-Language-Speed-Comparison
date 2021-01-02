@@ -84,8 +84,8 @@ int main(void)
   clock_t begin = clock();
   // cout << factorial(15) << endl;
   // cout << max() << endl;
-  // print_triangle(10);
-  hello_world();
+  print_triangle(100);
+
   clock_t end = clock();
 
   time_spent = (double)(end - begin) / CLOCKS_PER_SEC;

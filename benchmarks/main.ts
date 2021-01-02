@@ -55,18 +55,21 @@ const maxSearch = () : number => {
 }
 
 
+
 const printTriangle = (size: number): void => {
   for(let i=size; i>=1; i--){
     for(let j=1; j<=i; j++){
+
       console.info(j);
     }
   }
 }
 const main = () => {
   // console.log(sum(1000000));
-  console.time("helloWorld");
-  helloWorld();
-  console.timeEnd("helloWorld");
+  console.time("printTriangle");
+  // helloWorld();
+  printTriangle(100);
+  console.timeEnd("printTriangle");
 };
 
 main();
