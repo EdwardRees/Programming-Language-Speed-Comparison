@@ -8,8 +8,9 @@ def parse(file):
             line = line.strip()
             if("#" in line):
                 continue
-            [functionName, c, cpp, java, ts, js, lua, py, ruby] = line.split(",")
-            data[functionName.strip()] = {"C": float(c.strip()), "C++": float(cpp.strip()),
+            [functionName, c, cpp, cs, java, ts,
+                js, lua, py, ruby] = line.split(",")
+            data[functionName.strip()] = {"C": float(c.strip()), "C++": float(cpp.strip()), "C#": float(cs.strip()),
                                           "Java": float(java.strip()), "TypeScript": float(ts.strip()), "JavaScript": float(js.strip()), "Python": float(py.strip()), "Lua": float(lua.strip()), "Ruby": float(ruby.strip())}
     return data
 
@@ -123,19 +124,19 @@ def writeReadme(data):
         f.write("\n")
         f.write("Data in seconds\n")
         f.write("\n")
-        f.write("|         Function         |     C     |   C++    |     Java     |    TypeScript     |    JavaScript    |    Lua    | Python | Ruby |\n")
-        f.write("| :----------------------: | :-------: | :------: | :----------: | :-------: | :------: | :------: | :------: | :------: | \n")
+        f.write("|         Function         |     C     |   C++    |   C# |  Java     |    TypeScript     |    JavaScript    |    Lua    | Python | Ruby |\n")
+        f.write("| :----------------------: | :-------: | :------: | :---: | :----------: | :-------: | :------: | :------: | :------: | :------: | \n")
         for func in data:
             vals = data[func]
             py = f'{vals["Python"]:.6f}'
             lua = f'{vals["Lua"]:.6f}'
             ruby = f'{vals["Ruby"]:.6f}'
             if(func == '50th Recursive Fibonacci'):
-              lua = str(lua) + "<sup>[1]</sup>"
-              py = str(py) + "<sup>[2]</sup>"
-              ruby = str(ruby) + "<sup>[3]</sup>"
+                lua = str(lua) + "<sup>[1]</sup>"
+                py = str(py) + "<sup>[2]</sup>"
+                ruby = str(ruby) + "<sup>[3]</sup>"
             f.write(
-                f"| {func} | {vals['C']:.6f} | {vals['C++']:.6f} | {vals['Java']:.6f} | {vals['TypeScript']:.6f} | {vals['JavaScript']:.6f} | {lua} | {py} | {ruby} | \n")
+                f"| {func} | {vals['C']:.6f} | {vals['C++']:.6f} | {vals['C#']:6f} | {vals['Java']:.6f} | {vals['TypeScript']:.6f} | {vals['JavaScript']:.6f} | {lua} | {py} | {ruby} | \n")
         f.write("\n<sup>[1]</sup> Estimation: Note, 50th Recursive Fibonacci for Lua was calculated based on how long it takes to run through 1000000 numbers, as it would theoretically run 2<sup>50</sup> times. The calculation was <code>(2<sup>50</sup> / 1000000 / 8)</code> to calculate the estimated duration. This number is an estimate as it, in itself, was not completing on my machine or repl, so I calculated the estimated duration instead. </sub>")
         f.write("\n<sup>[2]</sup> Estimation: Note, 50th Recursive Fibonacci for Python was calculated based on how long it takes to run through 1000000 numbers, as it would theoretically run 2<sup>50</sup> times. The calculation was <code>((2<sup>50</sup> / 1000000 / 10) / 12)</code> to calculate the estimated duration. This number is an estimate as it, in itself, was not completing on my machine or repl, so I calculated the estimated duration instead. </sub>")
         f.write("\n<sup>[3]</sup> Estimation: Note, 50th Recursive Fibonacci for Ruby was calculated based on how long it takes to run through 1000000 numbers, as it would theoretically run 2<sup>50</sup> times. The calculation was <code>(2<sup>50</sup> / 1000000 / 11)</code> to calculate the estimated duration. This number is an estimate as it, in itself, was not completing on my machine or repl, so I calculated the estimated duration instead. </sub>")
