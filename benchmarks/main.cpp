@@ -83,7 +83,7 @@ int main(void)
   double time_spent = 0.0;
   clock_t begin = clock();
   // cout << factorial(15) << endl;
-  // cout << max() << endl;
+ //  cout << max() << endl;
   print_triangle(100);
 
   clock_t end = clock();

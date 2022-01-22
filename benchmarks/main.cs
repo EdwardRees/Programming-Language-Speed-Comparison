@@ -72,7 +72,8 @@ namespace programminglanguagespeedtest {
     static void Main(string[] args){
       var watch = System.Diagnostics.Stopwatch.StartNew();
       // the code that you want to measure comes here
-      Triangle(100);
+      Fibonacci(50);
+      //Triangle(100);
       watch.Stop();
       var elapsed = watch.ElapsedMilliseconds;
       Console.WriteLine("Elapsed: " + elapsed);

@@ -67,10 +67,7 @@ def printTriangle(size):
 
 def main():
     start = time.time()
-    # maxSearch()
-    # helloWorld()
     printTriangle(100)
-    # print(factorial(20))
     end = time.time()
     print(f"{end - start}")
 

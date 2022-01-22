@@ -9,13 +9,11 @@ const factorial = (n: number): number => {
 };
 
 const sum = (n: number): number => {
-  console.time("sum");
   let s = 0;
   for (let i = 0; i < n; i++) {
     s += i;
   }
 
-  console.timeEnd("sum");
   return s;
 };
 
@@ -66,10 +64,9 @@ const printTriangle = (size: number): void => {
 }
 const main = () => {
   // console.log(sum(1000000));
-  console.time("printTriangle");
-  // helloWorld();
+  console.time("tests");
   printTriangle(100);
-  console.timeEnd("printTriangle");
+  console.timeEnd("tests");
 };
 
 main();

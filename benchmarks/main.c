@@ -57,7 +57,6 @@ unsigned long fib2(int n)
 
 int max()
 {
-  srand(time(NULL));
   int numbers[1000000] = {0};
   for (int i = 0; i < 1000000; i++)
   {
@@ -89,14 +88,13 @@ void print_triangle(int size)
 
 int main(void)
 {
+  srand(time(NULL));
   double time_spent = 0.0;
   clock_t begin = clock();
-  // hello_world();
-  // printf("%lu\n", factorial(20));
+   //printf("%lu\n", factorial(20));
   // printf("%lu\n", fib2(49));
   // printf("%d\n", max());
-
-  print_triangle(100);
+  sum(1000000);
 
   clock_t end = clock();
 

@@ -70,7 +70,7 @@ public class Main {
 
   public static void main(String[] args) {
     long start = System.nanoTime();
-    // helloWorld();
+     //helloWorld();
     print_triangle(100);
     // System.out.println(max());
     long end = System.nanoTime();

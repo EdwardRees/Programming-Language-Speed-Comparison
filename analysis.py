@@ -1,6 +1,5 @@
 from sys import argv
 
-
 def parse(file):
     data = {}
     with open(file, "r") as f:
@@ -64,10 +63,10 @@ def printFastestShortest(data):
     printDictionary(getSlowestLanguagesPerFunction(data))
 
 
-def writeFastestShortest(data):
+def writeFastestShortest(data, filename):
     fastest = getFastestLanguagesPerFunction(data)
     slowest = getSlowestLanguagesPerFunction(data)
-    with open("analysis.md", "w") as f:
+    with open(filename, "w") as f:
         f.write("# Programming Language Speeds Analysis\n")
         f.write("\n")
         f.write("## Fastest\n\n")
@@ -80,12 +79,65 @@ def writeFastestShortest(data):
                 f"- **{key}**: <u>{list(slowest[key].keys())[0]}</u> at {slowest[key][list(slowest[key].keys())[0]]:.6f} seconds\n\n")
 
 
+def writeReadme(data):
+    with open("README.md", "w") as f:
+        f.write("# Programming Language Speeds\n")
+        f.write("\n")
+        f.write("## Data\n")
+        f.write("\n")
+        f.write("Data in seconds\n")
+        f.write("\n")
+        f.write("### Intel\n")
+        f.write('\n')
+        f.write("|         Function         |     C     |   C++    |   C# |  Java     |    TypeScript     |    JavaScript    |    Lua    | Python | Ruby |\n")
+        f.write("| :----------------------: | :-------: | :------: | :---: | :----------: | :-------: | :------: | :------: | :------: | :------: | \n")
+        for func in data["intel"]:
+            vals = data["intel"][func]
+            py = f'{vals["Python"]:.6f}'
+            lua = f'{vals["Lua"]:.6f}'
+            ruby = f'{vals["Ruby"]:.6f}'
+            f.write(
+                f"| {func} | {vals['C']:.6f} | {vals['C++']:.6f} | {vals['C#']:6f} | {vals['Java']:.6f} | {vals['TypeScript']:.6f} | {vals['JavaScript']:.6f} | {lua} | {py} | {ruby} |\n")
+      
+        f.write('\n')
+        f.write("### M1\n")
+        f.write('\n')
+        f.write("|         Function         |     C     |   C++    |   C# |  Java     |    TypeScript     |    JavaScript    |    Lua    | Python | Ruby |\n")
+        f.write("| :----------------------: | :-------: | :------: | :---: | :----------: | :-------: | :------: | :------: | :------: | :------: |\n")
+        for func in data["m1"]:
+            vals = data["m1"][func]
+            py = f'{vals["Python"]:.6f}'
+            lua = f'{vals["Lua"]:.6f}'
+            ruby = f'{vals["Ruby"]:.6f}'
+            f.write(
+                f"| {func} | {vals['C']:.6f} | {vals['C++']:.6f} | {vals['C#']:6f} | {vals['Java']:.6f} | {vals['TypeScript']:.6f} | {vals['JavaScript']:.6f} | {lua} | {py} | {ruby} |\n")
+        f.write("\n")
+        f.write("## Computer Specifications\n\n")
+        f.write("| Type | Computer Model | Processor | Memory | Graphics | Operating System |\n")
+        f.write("| :--- | :------------: | :-------: | :----: | :--------: | :----------------: |\n")
+        f.write("| Intel | MacBook Pro 13in 2019 | 2.8GHz Quad-Core Intel Core i7 | 16GB | Intel Iris Plus Graphics 655 | macOS Big Sur |\n")
+        f.write("| M1 | MacBook Pro 14in 2021 | Apple M1 Pro 10-CPU  | 32GB | Apple M1 Pro 16-GPU | macOS Monterey |\n")
+        f.write("")
+    f.close()
+
+
+
+
+
 def main():
-    data = parse("data.csv")
+    intel = parse("intel.csv")
+    m1 = parse("m1.csv")
+    data = {}
+    data["intel"] = intel
+    data["m1"] = m1
     if(len(argv) == 1):
         print("Defaulting to printing fastest and shortest values")
         print("-" * 10)
-        printFastestShortest(data)
+        print("Intel")
+        printFastestShortest(data["intel"])
+        print()
+        print("M1")
+        printFastestShortest(data["m1"])
     else:
         if(argv[1] == "-h"):
             print("Options are:")
@@ -98,15 +150,21 @@ def main():
             writeReadme(data)
             print("Updated README.md file")
         elif(argv[1] == '-p'):
-            printFastestShortest(data)
+            print("Intel")
+            printFastestShortest(data["intel"])
+            print()
+            print("M1")
+            printFastestShortest(data["m1"])
         elif(argv[1] == '-o'):
-            writeFastestShortest(data)
-            print("Updated analysis.md file")
+            writeFastestShortest(data['intel'], "intel-analysis.md")
+            writeFastestShortest(data['m1'], "m1-analysis.md")
+            print("Updated analysis files")
         elif(argv[1] == '-u'):
-            writeFastestShortest(data)
-            print("Updated README.md file")
+            writeFastestShortest(data['intel'], "intel-analysis.md")
+            writeFastestShortest(data['m1'], "m1-analysis.md")
+            print("Updated analysis files")
             writeReadme(data)
-            print("Updated analysis.md file")
+            print(f"Updated README.md file")
         else:
             print("Options are:")
             print("-h: This help menu")
@@ -114,33 +172,4 @@ def main():
             print("-r: Write readme")
             print("-o: Write fastest and slowest to analysis.md file")
             print("-u: Update both README.md and analysis.md")
-
-
-def writeReadme(data):
-    with open("README.md", "w") as f:
-        f.write("# Programming Language Speeds\n")
-        f.write("\n")
-        f.write("## Data\n")
-        f.write("\n")
-        f.write("Data in seconds\n")
-        f.write("\n")
-        f.write("|         Function         |     C     |   C++    |   C# |  Java     |    TypeScript     |    JavaScript    |    Lua    | Python | Ruby |\n")
-        f.write("| :----------------------: | :-------: | :------: | :---: | :----------: | :-------: | :------: | :------: | :------: | :------: | \n")
-        for func in data:
-            vals = data[func]
-            py = f'{vals["Python"]:.6f}'
-            lua = f'{vals["Lua"]:.6f}'
-            ruby = f'{vals["Ruby"]:.6f}'
-            if(func == '50th Recursive Fibonacci'):
-                lua = str(lua) + "<sup>[1]</sup>"
-                py = str(py) + "<sup>[2]</sup>"
-                ruby = str(ruby) + "<sup>[3]</sup>"
-            f.write(
-                f"| {func} | {vals['C']:.6f} | {vals['C++']:.6f} | {vals['C#']:6f} | {vals['Java']:.6f} | {vals['TypeScript']:.6f} | {vals['JavaScript']:.6f} | {lua} | {py} | {ruby} | \n")
-        f.write("\n<sup>[1]</sup> Estimation: Note, 50th Recursive Fibonacci for Lua was calculated based on how long it takes to run through 1000000 numbers, as it would theoretically run 2<sup>50</sup> times. The calculation was <code>(2<sup>50</sup> / 1000000 / 8)</code> to calculate the estimated duration. This number is an estimate as it, in itself, was not completing on my machine or repl, so I calculated the estimated duration instead. </sub>")
-        f.write("\n<sup>[2]</sup> Estimation: Note, 50th Recursive Fibonacci for Python was calculated based on how long it takes to run through 1000000 numbers, as it would theoretically run 2<sup>50</sup> times. The calculation was <code>((2<sup>50</sup> / 1000000 / 10) / 12)</code> to calculate the estimated duration. This number is an estimate as it, in itself, was not completing on my machine or repl, so I calculated the estimated duration instead. </sub>")
-        f.write("\n<sup>[3]</sup> Estimation: Note, 50th Recursive Fibonacci for Ruby was calculated based on how long it takes to run through 1000000 numbers, as it would theoretically run 2<sup>50</sup> times. The calculation was <code>(2<sup>50</sup> / 1000000 / 11)</code> to calculate the estimated duration. This number is an estimate as it, in itself, was not completing on my machine or repl, so I calculated the estimated duration instead. </sub>")
-    f.close()
-
-
 main()

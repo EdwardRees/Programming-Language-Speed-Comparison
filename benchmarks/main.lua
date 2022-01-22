@@ -76,7 +76,7 @@ end
 
 function main()
   local start = os.clock()
-  print(printTriangle(100))
+  printTriangle(100)
   print(os.clock() - start)
 end
 

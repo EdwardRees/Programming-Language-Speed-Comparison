@@ -9,12 +9,10 @@ const factorial = (n) => {
 };
 
 const sum = (n) => {
-  console.time("sum");
   let s = 0;
   for (let i = 0; i < n; i++) {
     s += i;
   }
-  console.timeEnd("sum");
   return s;
 };
 
@@ -63,9 +61,9 @@ const printTriangle = (size) => {
 }
 
 const main = () => {
-  console.time("printTriangle");
-  printTriangle(100)
-  console.timeEnd("printTriangle");
+  console.time("fib1");
+  printTriangle(100);
+  console.timeEnd("fib1");
   // console.time("factorial");
   // console.info(factorial(10));
   // console.timeEnd("factorial");

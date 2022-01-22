@@ -8,7 +8,7 @@
 
 - **Summation of 1000000**: <u>C</u> at 0.002087 seconds
 
-- **50th Recursive Fibonacci**: <u>C++</u> at 39.743700 seconds
+- **50th Recursive Fibonacci**: <u>Java</u> at 39.050964 seconds
 
 - **50th Iterative Fibonacci**: <u>C</u> at 0.000010 seconds
 
@@ -24,7 +24,7 @@
 
 - **Summation of 1000000**: <u>Python</u> at 0.054200 seconds
 
-- **50th Recursive Fibonacci**: <u>Lua</u> at 140737488.355328 seconds
+- **50th Recursive Fibonacci**: <u>Python</u> at 3433.996770 seconds
 
 - **50th Iterative Fibonacci**: <u>C#</u> at 0.017000 seconds
 
