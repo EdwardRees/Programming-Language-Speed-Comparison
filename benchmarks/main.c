@@ -86,15 +86,51 @@ void print_triangle(int size)
   }
 }
 
-int main(void)
+int main(int argc, char* argv[])
 {
+  if(argc == 1){
+    printf("Invalid usage: ./main <choice>\n");
+    printf("Choices:\n");
+    printf("[0]: hello\n[1]: fact\n[2]: sum\n[3]: recur_fib\n[4]: iter_fib\n[5]: max\n[6]: triangle\n");
+    return 1;
+  }
+  int choice = atoi(argv[1]);
+  if(choice > 6 || choice < 0){
+    printf("Invalid choice\n");
+    return 1;
+  }
   srand(time(NULL));
   double time_spent = 0.0;
   clock_t begin = clock();
+  switch(choice){
+    case 0:
+      hello_world();
+      break;
+    case 1: 
+      printf("%lu\n", factorial(20));
+      break;
+    case 2:
+      printf("%d\n", sum(1000000));
+      break;
+    case 3:
+      printf("%lu\n", fib(50));
+      break;
+    case 4:
+      printf("%lu\n", fib2(50));
+      break;
+    case 5:
+      printf("%d\n", max());
+      break;
+    case 6:
+      print_triangle(100);
+      break;
+    default:
+      printf("Invalid choice\n");
+      break;
+  }
    //printf("%lu\n", factorial(20));
   // printf("%lu\n", fib2(49));
   // printf("%d\n", max());
-  sum(1000000);
 
   clock_t end = clock();
 

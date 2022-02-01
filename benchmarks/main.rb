@@ -76,8 +76,37 @@ def printTriangle(size)
 end
 
 def main()
+  inputs = ARGV
+  len = inputs.length 
+  if(len == 0)
+      puts("Invalid usage: ./main.rb <choice>\n");
+      puts("Choices:\n");
+      puts("[0]: hello\n[1]: fact\n[2]: sum\n[3]: recur_fib\n[4]: iter_fib\n[5]: max\n[6]: triangle\n");
+      return
+  end
+  choice = inputs[0].to_i
+  if(choice > 6 or choice < 0)
+    puts("Invalid choice: " + choice.to_s)
+    return
+  end
+
   start = Time.now
-  printTriangle(100)
+
+  if choice == 0
+    helloWorld()
+  elsif choice == 1
+    puts factorial(20)
+  elsif choice == 2
+    puts sum(1000000)
+  elsif choice == 3
+    puts recurFib(50, 1)
+  elsif choice == 4
+    puts iterFib(50)
+  elsif choice == 5
+    puts maxSearch()
+  elsif choice == 6
+    printTriangle(100)
+  end
 
   elapsed = Time.now - start
   puts elapsed

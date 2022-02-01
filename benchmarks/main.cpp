@@ -77,14 +77,54 @@ void print_triangle(int size)
 }
 
 
-int main(void)
+int main(int argc, char* argv[] )
 {
-
+  if(argc == 1){
+    cout << "Invalid usage: ./maincpp <choice>" << endl;
+    cout << "Choices:" << endl;
+    cout << "0. Hello World" << endl;
+    cout << "1. Factorial" << endl;
+    cout << "2. Sum" << endl;
+    cout << "3. Recursive Fibonnaci" << endl;
+    cout << "4. Iterative Fibonnaci" << endl;
+    cout << "5. Max" << endl;
+    cout << "6. Print Triangle" << endl;
+    return 1;
+  }
+  int choice = atoi(argv[1]);
+  if(choice > 6 || choice < 0){
+    cout << "Invalid choice" << endl;
+    return 1;
+  }
   double time_spent = 0.0;
   clock_t begin = clock();
-  // cout << factorial(15) << endl;
- //  cout << max() << endl;
-  print_triangle(100);
+
+  switch(choice){
+    case 0:
+      hello_world();
+      break;
+    case 1:
+      cout << factorial(20) << endl;
+      break;
+    case 2:
+      cout << sum(1000000) << endl;
+      break;
+    case 3:
+      cout << fib(50) << endl;
+      break;
+    case 4:
+      cout << fib2(50) << endl;
+      break;
+    case 5:
+      cout << max() << endl;
+      break;
+    case 6:
+      print_triangle(100);
+      break;
+    default:
+      cout << "Invalid choice" << endl;
+      break;
+  }
 
   clock_t end = clock();
 

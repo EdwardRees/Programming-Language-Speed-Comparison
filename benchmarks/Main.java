@@ -1,7 +1,8 @@
 public class Main {
-  public static void helloWorld(){
+  public static void helloWorld() {
     System.out.println("Hello World");
   }
+
   public static long factorial(int n) {
     if (n <= 1) {
       return 1;
@@ -41,40 +42,73 @@ public class Main {
     return f;
   }
 
-  public static int max(){
+  public static int max() {
     int[] numbers = new int[1000000];
-    for(int i=0; i<1000000; i++){
-      numbers[i] = (int)(Math.random() * 1000000);
+    for (int i = 0; i < 1000000; i++) {
+      numbers[i] = (int) (Math.random() * 1000000);
     }
     int maximum = 0;
-    for(int i=0; i<1000000; i++){
-      if(maximum < numbers[i]){
+    for (int i = 0; i < 1000000; i++) {
+      if (maximum < numbers[i]) {
         maximum = numbers[i];
       }
     }
     return maximum;
   }
 
-  public static void print_triangle(int size){
+  public static void print_triangle(int size) {
 
-  for (int i = size; i >= 1; --i)
-  {
-    for (int j = 1; j <= i; ++j)
-    {
-      System.out.printf("%d ", j);
+    for (int i = size; i >= 1; --i) {
+      for (int j = 1; j <= i; ++j) {
+        System.out.printf("%d ", j);
+      }
+      System.out.printf("\n");
     }
-    System.out.printf("\n");
+
   }
 
-}
-
   public static void main(String[] args) {
+    if (args.length == 0) {
+      System.out.printf("Invalid usage: java Main <choice>\n");
+      System.out.printf("Choices:\n");
+      System.out.printf("[0]: hello\n[1]: fact\n[2]: sum\n[3]: recur_fib\n[4]: iter_fib\n[5]: max\n[6]: triangle\n");
+      return;
+    }
+    int choice = Integer.parseInt(args[0]);
+    if(choice > 6 || choice < 0) {
+      System.out.printf("Invalid choice\n");
+      return;
+    }
     long start = System.nanoTime();
-     //helloWorld();
-    print_triangle(100);
-    // System.out.println(max());
+
+    switch(choice){
+      case 0:
+        helloWorld();
+        break;
+      case 1:
+        System.out.printf("%d\n", factorial(20));
+        break;
+      case 2:
+        System.out.printf("%d\n", sum(1000000));
+        break;
+      case 3:
+        System.out.printf("%d\n", fib(50));
+        break;
+      case 4:
+        System.out.printf("%d\n", fib2(50));
+        break;
+      case 5:
+        System.out.printf("%d\n", max());
+        break;
+      case 6:
+        print_triangle(100);
+        break;
+      default:
+        System.out.printf("Invalid choice\n");
+        break;
+    }
     long end = System.nanoTime();
-    System.out.println(end - start);
+    System.out.printf("Time spent: %dns\n", end - start);
 
   }
 }

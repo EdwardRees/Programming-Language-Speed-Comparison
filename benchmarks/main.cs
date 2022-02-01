@@ -70,10 +70,43 @@ namespace programminglanguagespeedtest {
     }
 
     static void Main(string[] args){
+      if(args.Length == 0){
+        Console.WriteLine("Usage: main.cs <benchmark>");
+        Console.WriteLine("Choices:");
+        Console.WriteLine("[0]: hello\n[1]: fact\n[2]: sum\n[3]: recur_fib\n[4]: iter_fib\n[5]: max\n[6]: triangle\n");
+        return;
+      }
+      int choice = int.Parse(args[0]);
+      if(choice > 6 || choice > 0){
+        Console.WriteLine("Invalid choice");
+        return;
+      }
+
       var watch = System.Diagnostics.Stopwatch.StartNew();
       // the code that you want to measure comes here
-      Fibonacci(50);
-      //Triangle(100);
+      switch(choice){
+        case 0:
+          HelloWorld();
+          break;
+        case 1:
+          Console.WriteLine(Factorial(20));
+          break;
+        case 2:
+          Console.WriteLine(Summation(1000000));
+          break;
+        case 3:
+          Console.WriteLine(Fibonacci(50));
+          break;
+        case 4:
+          Console.WriteLine(Fibonacci2(50));
+          break;
+        case 5:
+          Console.WriteLine(MaxSearch(1000000));
+          break;
+        case 6:
+          Triangle(100);
+          break;
+      }
       watch.Stop();
       var elapsed = watch.ElapsedMilliseconds;
       Console.WriteLine("Elapsed: " + elapsed);

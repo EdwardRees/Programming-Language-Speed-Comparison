@@ -75,8 +75,33 @@ function printTriangle(size)
 end
 
 function main()
+  if(arg[1] == nil) then
+    print('Usage: main.lua <n>')
+    print("Choices:")
+    print("[0]: hello\n[1]: fact\n[2]: sum\n[3]: recur_fib\n[4]: iter_fib\n[5]: max\n[6]: triangle\n")
+    return
+  end
+  local n = tonumber(arg[1])
+  if n < 0 or n > 6 then
+    print('Invalid choice')
+    return
+  end
   local start = os.clock()
-  printTriangle(100)
+  if n == 0 then
+    helloWorld()
+  elseif n == 1 then
+    print(factorial(20))
+  elseif n == 2 then
+    print(sum(1000000))
+  elseif n == 3 then
+    print(recurFib(50))
+  elseif n == 4 then
+    print(iterFib(50))
+  elseif n == 5 then
+    print(maxSearch())
+  elseif n == 6 then
+    printTriangle(100)
+  end
   print(os.clock() - start)
 end
 

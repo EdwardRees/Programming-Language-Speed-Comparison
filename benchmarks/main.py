@@ -1,5 +1,6 @@
 import time
 from random import randint
+from sys import argv
 
 
 def helloWorld():
@@ -27,11 +28,6 @@ def recurFib(n):
         return n
     else:
         return(recurFib(n-1) + recurFib(n-2))
-    # if(n <= 1):
-    #   return 1
-    # else:
-    #   print(n)
-    #   return recurFib(n - 1) + recurFib(n - 2)
 
 
 def iterFib(n):
@@ -66,8 +62,30 @@ def printTriangle(size):
 
 
 def main():
+    if(len(argv) == 0):
+      print("Invalid usage: ./main <choice>\n");
+      print("Choices:\n");
+      print("[0]: hello\n[1]: fact\n[2]: sum\n[3]: recur_fib\n[4]: iter_fib\n[5]: max\n[6]: triangle\n");
+      return
+    choice = int(argv[1])
+    if(choice > 6 or choice < 0):
+        print("Invalid choice")
+        return
     start = time.time()
-    printTriangle(100)
+    if(choice == 0):
+        helloWorld()
+    elif(choice == 1):
+        print(factorial(20))
+    elif(choice == 2):
+        print(sum(1000000))
+    elif(choice == 3):
+        print(recurFib(50))
+    elif(choice == 4):
+        print(iterFib(50))
+    elif(choice == 5):
+        print(maxSearch())
+    elif(choice == 6):
+        printTriangle(100)
     end = time.time()
     print(f"{end - start}")
 
