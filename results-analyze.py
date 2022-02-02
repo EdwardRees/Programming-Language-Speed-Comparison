@@ -2,7 +2,7 @@ import json
 
 data = {}
 
-languages = ["c", "c++", "c#", "java", "typescript", "javascript", "lua", "python", "ruby"]
+languageNames = ["c", "c++", "c#", "java", "typescript", "javascript", "lua", "python", "ruby"]
 
 def minutesToSeconds(minutes):
   return minutes * 60
@@ -64,7 +64,7 @@ def createAnalysisFile(data):
   print(string)
 
 def analyzeAll(data):
-  for language in languages:
+  for language in languageNames:
     try:
       data = analyze(language, data)
     except FileNotFoundError:
