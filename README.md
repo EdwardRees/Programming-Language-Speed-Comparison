@@ -1,5 +1,29 @@
 # Programming Language Speeds
 
+## Information
+
+This project was originally created to see how long it would take for various programming languages to run through similar to identical programs. However, over time, the goal of this project has changed. Now, the idea is to see how programming language run times differ on various machines and hardware. This project now includes a simple run bash script to run the code on a machine running MacOS. Future versions may include simple scripts to automatically run everything on other operating systems.
+
+## Dependencies
+
+- Mono; used for C Sharp to compile and execute
+- Java
+- Node; JavaScript executor
+- TS-Node; NodeJS TypeScript executor
+- Ruby
+- Python3
+- Lua
+
+## Instructions to Run
+
+In order to run the various tests, permissions for both `run.sh` and `run-all.sh` must be set to executable. This can be done by the following: `chmod +x run.sh` and `chmod +x run-all.sh`.
+
+To run all language projects, `run-all.sh all` can be run. This would run all of the language projects using the `run.sh` file, with each language automatically being put in, with the output going to the `results` folder. If only one language needs to be run, `./run-all.sh {language}` can be run with `{language}` being the specified language to run.
+
+To delete or reset the output files, `./run.sh reset all` can be run. If only one language needs to be reset, `./run.sh reset {language}` can be inputted, which would delete the specified language output file.
+
+To analyze the outputs, run `python3 results-analyze.py`. This will analyze the outputted files in the `results` folder and provide the average times.
+
 ## Data
 
 Data in seconds
