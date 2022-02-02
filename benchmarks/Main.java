@@ -108,7 +108,8 @@ public class Main {
         break;
     }
     long end = System.nanoTime();
-    System.out.printf("Time spent: %dns\n", end - start);
+    double seconds = (end - start * 1.0) / 1000000000;
+    System.out.printf("Time spent: %f\n", seconds);
 
   }
 }

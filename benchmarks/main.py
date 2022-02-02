@@ -14,12 +14,9 @@ def factorial(n):
 
 
 def sum(n):
-    start = time.time()
     s = 0
     for i in range(n):
         s += i
-    end = time.time()
-    print(f"{end - start}")
     return s
 
 
@@ -87,7 +84,7 @@ def main():
     elif(choice == 6):
         printTriangle(100)
     end = time.time()
-    print(f"{end - start}")
+    print(f"Time spent: {end - start}")
 
 
 main()

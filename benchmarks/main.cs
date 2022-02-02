@@ -108,8 +108,11 @@ namespace programminglanguagespeedtest {
           break;
       }
       watch.Stop();
-      var elapsed = watch.ElapsedMilliseconds;
-      Console.WriteLine("Elapsed: " + elapsed);
+      var ts = watch.Elapsed;
+      var elapsedString = String.Format("{0:00}.{1:00}",
+            ts.Seconds,
+            ts.Milliseconds / 10);
+      Console.WriteLine("Time spent: " + elapsedString);
 
     }
   }

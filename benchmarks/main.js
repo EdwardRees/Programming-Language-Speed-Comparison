@@ -77,7 +77,7 @@ const main = () => {
   }
 
   let actionName = action == 0 ? "hello" : action == 1 ? "fact" : action == 2 ? "sum" : action == 3 ? "recur_fib" : action == 4 ? "iter_fib" : action == 5 ? "max" : "triangle";
-  console.time(actionName);
+  console.time("Time spent");
   switch (action) {
     case 0:
       helloWorld();
@@ -105,7 +105,7 @@ const main = () => {
       break;
   }
 
-  console.timeEnd(actionName);
+  console.timeEnd("Time spent");
   // console.time("factorial");
   // console.info(factorial(10));
   // console.timeEnd("factorial");

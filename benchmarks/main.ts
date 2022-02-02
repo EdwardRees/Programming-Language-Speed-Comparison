@@ -88,7 +88,7 @@ const main = () => {
       : action == 5
       ? "max"
       : "triangle";
-  console.time(actionName);
+  console.time("Time spent");
   switch (action) {
     case 0:
       helloWorld();
@@ -116,7 +116,7 @@ const main = () => {
       break;
   }
 
-  console.timeEnd(actionName);
+  console.timeEnd("Time spent");
 };
 
 main();

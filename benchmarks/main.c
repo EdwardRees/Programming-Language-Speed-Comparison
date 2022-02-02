@@ -113,10 +113,10 @@ int main(int argc, char* argv[])
       printf("%d\n", sum(1000000));
       break;
     case 3:
-      printf("%lu\n", fib(50));
+      printf("%lu\n", fib(49));
       break;
     case 4:
-      printf("%lu\n", fib2(50));
+      printf("%lu\n", fib2(49));
       break;
     case 5:
       printf("%d\n", max());

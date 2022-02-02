@@ -25,14 +25,6 @@ def recurFib(n, start)
   if n <= 1
     return n
   else
-    #if n % 10 == 0
-    #  $count += 1
-    #end
-    #if $count % 1000000 == 0
-      # puts $count
-     # elapsed = Time.now - start
-      # puts "hit ".concat($count.to_s).concat(" at ").concat(elapsed.to_s)
-    #end
     return recurFib(n - 1, start) + recurFib(n - 2, start)
   end
 end
@@ -109,7 +101,7 @@ def main()
   end
 
   elapsed = Time.now - start
-  puts elapsed
+  puts("Time spent: " + elapsed.to_s)
 end
 
 main()

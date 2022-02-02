@@ -4,3 +4,4 @@ maincpp
 Main.class
 *.exe
 .vscode/*
+results/

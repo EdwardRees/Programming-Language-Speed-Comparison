@@ -110,10 +110,10 @@ int main(int argc, char* argv[] )
       cout << sum(1000000) << endl;
       break;
     case 3:
-      cout << fib(50) << endl;
+      cout << fib(49) << endl;
       break;
     case 4:
-      cout << fib2(50) << endl;
+      cout << fib2(49) << endl;
       break;
     case 5:
       cout << max() << endl;
@@ -129,6 +129,6 @@ int main(int argc, char* argv[] )
   clock_t end = clock();
 
   time_spent = (double)(end - begin) / CLOCKS_PER_SEC;
-  cout << "Time spent " << time_spent << endl;
+  cout << "Time spent: " << time_spent << endl;
   return 0;
 }

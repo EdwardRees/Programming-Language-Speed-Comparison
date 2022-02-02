@@ -21,17 +21,9 @@ end
 count = 0
 
 function recurFib(n)
-  -- time takes: 140,737,488.355328
-  -- because : 2^50 / 1000000 / 8
   if n <= 1 then
     return 1
   else
-    if n % 10 == 0 then
-      count = count + 1
-      if(count % 1000000 == 0) then
-        print(count / 1000000)
-      end
-    end
     return recurFib(n - 1) + recurFib(n - 2)
   end
 end
@@ -102,7 +94,7 @@ function main()
   elseif n == 6 then
     printTriangle(100)
   end
-  print(os.clock() - start)
+  print("Time spent: " .. tostring(os.clock() - start))
 end
 
 main()
