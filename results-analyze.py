@@ -72,9 +72,4 @@ def analyzeAll(data):
   
 
 analyzeAll(data)
-
-# print(data)
-# print(average(data))
-# print(getConfig())
-
 createAnalysisFile(data)
