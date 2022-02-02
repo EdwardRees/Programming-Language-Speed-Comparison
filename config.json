@@ -1,0 +1,8 @@
+{
+  "type": "ENTER TYPE <Intel/AMD/M1/M1 Pro/M1 Max>",
+  "model": "ENTER COMPUTER MODEL",
+  "processor": "ENTER PROCESSOR",
+  "memory": "ENTER RAM",
+  "graphics": "ENTER GRAPHICS",
+  "os": "ENTER OPERATING SYSTEM"
+}

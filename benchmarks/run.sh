@@ -14,15 +14,15 @@ if [ "$1" = "c" ]; then
   done
 elif [ "$1" = "cpp" ] || [ "$1" = "c++" ]; then
   g++ -o maincpp main.cpp
-  echo ">> $2" >>results/cpp.txt
+  echo ">> $2" >>results/c++.txt
   for i in {0..9}; do
-    ./maincpp $2 >>results/cpp.txt
+    ./maincpp $2 >>results/c++.txt
   done
 elif [ "$1" = "c#" ]; then
   csc main.cs
-  echo ">> $2" >>results/cs.txt
+  echo ">> $2" >>results/c#.txt
   for i in {0..9}; do
-    mono main.exe $2 >>results/cs.txt
+    mono main.exe $2 >>results/c#.txt
   done
 elif [ "$1" = "java" ]; then
   javac Main.java

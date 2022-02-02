@@ -26,7 +26,7 @@ To analyze the outputs, run `python3 results-analyze.py`. This will analyze the 
 
 ## Data
 
-Data in seconds
+Current data in seconds
 
 ### Intel
 
@@ -57,4 +57,4 @@ Data in seconds
 | Type | Computer Model | Processor | Memory | Graphics | Operating System |
 | :--- | :------------: | :-------: | :----: | :--------: | :----------------: |
 | Intel | MacBook Pro 13in 2019 | 2.8GHz Quad-Core Intel Core i7 | 16GB | Intel Iris Plus Graphics 655 | macOS Big Sur |
-| M1 | MacBook Pro 14in 2021 | Apple M1 Pro 10-CPU  | 32GB | Apple M1 Pro 16-GPU | macOS Monterey |
+| M1 Pro | MacBook Pro 14in 2021 | Apple M1 Pro 10-CPU  | 32GB | Apple M1 Pro 16-GPU | macOS Monterey |
