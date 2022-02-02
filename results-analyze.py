@@ -2,6 +2,11 @@ import json
 
 data = {}
 
+languages = ["c", "c++", "c#", "java", "typescript", "javascript", "lua", "python", "ruby"]
+
+def minutesToSeconds(minutes):
+  return minutes * 60
+
 def analyze(language, data):
   with open(f"benchmarks/results/{language}.txt", 'r') as f:
     data[language] = {}
@@ -17,6 +22,9 @@ def analyze(language, data):
           time = line.split(": ")[1]
           if("ms" in time):
             time = time.replace("ms", "")
+          if("," in time):
+            timeSections = time.split(",")
+            time = minutesToSeconds(float(timeSections[0])) + float(timeSections[1])
           time = float(time)
           data[language][function].append(time)
   return data
@@ -55,8 +63,16 @@ def createAnalysisFile(data):
     string += "\n"
   print(string)
 
-analyze("c", data)
-analyze("c++", data)
+def analyzeAll(data):
+  for language in languages:
+    try:
+      data = analyze(language, data)
+    except FileNotFoundError:
+      continue
+  
+
+analyzeAll(data)
+
 # print(data)
 # print(average(data))
 # print(getConfig())

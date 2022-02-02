@@ -77,7 +77,7 @@ namespace programminglanguagespeedtest {
         return;
       }
       int choice = int.Parse(args[0]);
-      if(choice > 6 || choice > 0){
+      if(choice > 6 || choice < 0){
         Console.WriteLine("Invalid choice");
         return;
       }
@@ -95,10 +95,10 @@ namespace programminglanguagespeedtest {
           Console.WriteLine(Summation(1000000));
           break;
         case 3:
-          Console.WriteLine(Fibonacci(50));
+          Console.WriteLine(Fibonacci(49));
           break;
         case 4:
-          Console.WriteLine(Fibonacci2(50));
+          Console.WriteLine(Fibonacci2(49));
           break;
         case 5:
           Console.WriteLine(MaxSearch(1000000));
@@ -109,9 +109,10 @@ namespace programminglanguagespeedtest {
       }
       watch.Stop();
       var ts = watch.Elapsed;
-      var elapsedString = String.Format("{0:00}.{1:00}",
+      var elapsedString = String.Format("{0:00},{1:00}.{2:000}",
+            ts.Minutes,
             ts.Seconds,
-            ts.Milliseconds / 10);
+            ts.Milliseconds);
       Console.WriteLine("Time spent: " + elapsedString);
 
     }
