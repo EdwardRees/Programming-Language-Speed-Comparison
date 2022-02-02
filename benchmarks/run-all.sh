@@ -8,7 +8,7 @@ fi
 if [ "$1" = "all" ]; then
   for i in {0..6}; do
     ./run.sh c $i
-    ./run.sh cpp $i
+    ./run.sh c++ $i
     ./run.sh c# $i
     ./run.sh java $i
     ./run.sh python $i

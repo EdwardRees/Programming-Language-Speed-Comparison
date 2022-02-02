@@ -56,7 +56,7 @@ elif [ "$1" = "lua" ]; then
     lua main.lua $2 >>results/lua.txt
   done
 elif [ "$1" = "reset" ]; then
-  if [ "$1" = "reset" ] && [ "$2" = "all" ]; then
+  if [ "$2" = "all" ]; then
     rm -f results/*.txt
     exit 0
   else
