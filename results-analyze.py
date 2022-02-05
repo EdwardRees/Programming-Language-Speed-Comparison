@@ -67,6 +67,7 @@ def createAnalysisFile(data):
     string += "\n"
   with open("output-data.csv", 'w') as f:
     f.write(string)
+  return string
 
 
 def analyzeAll(data):
