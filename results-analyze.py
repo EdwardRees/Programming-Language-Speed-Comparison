@@ -25,6 +25,9 @@ def analyze(language, data):
           if("," in time):
             timeSections = time.split(",")
             time = minutesToSeconds(float(timeSections[0])) + float(timeSections[1])
+          if(":" in time):
+            timeSections = time.split(":")
+            time = minutesToSeconds(float(timeSections[0])) + float(timeSections[1]) * 60
           time = float(time)
           data[language][function].append(time)
   return data
