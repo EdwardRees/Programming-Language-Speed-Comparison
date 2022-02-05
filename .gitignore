@@ -5,3 +5,5 @@ Main.class
 *.exe
 .vscode/*
 results/
+data
+output-data.csv

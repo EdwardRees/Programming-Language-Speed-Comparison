@@ -22,11 +22,13 @@ def analyze(language, data):
           time = line.split(": ")[1]
           if("ms" in time):
             time = time.replace("ms", "")
+            time = str(float(time) / 1000)
           if("," in time):
             timeSections = time.split(",")
-            time = minutesToSeconds(float(timeSections[0])) + float(timeSections[1])
+            time = str(minutesToSeconds(float(timeSections[0])) + float(timeSections[1]))
           if(":" in time):
-            timeSections = time.split(":")
+            innerSections = time.split(" ")
+            timeSections = innerSections[0].split(":")
             time = minutesToSeconds(float(timeSections[0])) + float(timeSections[1]) * 60
           time = float(time)
           data[language][function].append(time)
@@ -46,7 +48,6 @@ def getConfig():
     return json.load(f)
 
 def createAnalysisFile(data):
-  config = getConfig()
   functions = ["Hello World", "Factorial of 20", "Summation of 1000000", "50th Recursive Fibonacci", "50th Iterative Fibonacci", "Linear Search; Maximum in 1000000", "Print Triangle of 100 elements"]
   avgData = average(data)
   languages = []
@@ -64,7 +65,9 @@ def createAnalysisFile(data):
       string += f"{avgData[language][str(i)]:.7f},"
     string = string[:-1]
     string += "\n"
-  print(string)
+  with open("output-data.csv", 'w') as f:
+    f.write(string)
+
 
 def analyzeAll(data):
   for language in languageNames:
