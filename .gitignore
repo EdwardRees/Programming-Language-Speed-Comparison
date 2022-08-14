@@ -7,3 +7,5 @@ Main.class
 results/
 data
 output-data.csv
+*/rust/target
+*/rust/Cargo.lock
